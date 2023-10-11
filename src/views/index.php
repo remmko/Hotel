@@ -11,6 +11,8 @@
     <body>
        <?php include "src/controls/mainmenu.php"; ctrlMenu();?>
 
+       
+
        <div class="nav">
             <div class="container-input">
                 <input type="text" placeholder="Buscar" name="text" class="input">

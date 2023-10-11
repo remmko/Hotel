@@ -29,9 +29,7 @@
                     </a>
                     <p class="hover-text">Perfil</p>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Log out</a>
-                </li>
+             
             </ul>
         </header>
         
