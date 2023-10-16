@@ -9,7 +9,9 @@ header{
 }
 
 
-
+nav{
+  width: 100%;
+}
 
 .nav-item {
     position: relative;
@@ -42,6 +44,7 @@ header{
     left: 50%;
     transform: translate(-50%, 0);
     margin-top: 10px;
+    margin: 20px;
   }
   
   .input {
@@ -83,12 +86,47 @@ header{
   }
 
   #carouselExampleIndicators {
-    width: 37%;
-    height: 37%;
+    width: 90%;
+    height: 90%;
     margin-top: 10px;
     padding-top: 20px;
     padding-left: 20px;
+    margin-left: 20px;
   
+}
+
+#indicators{
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-right: 15%;
+  margin-bottom: 1rem;
+  margin-left: 15%;
+  margin-top: 400px; 
+  background-color: red;
+
+}
+
+.carousel-indicators{
+  position: absolute;
+    right: 0;
+    margin-top: 370px;
+    /* bottom: 11px; */
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-right: 15%;
+    margin-bottom: 1rem;
+    margin-left: 15%;
+}
+.carousel-control-next, .carousel-control-prev{
+  height: 490px;
 }
 
   
@@ -104,6 +142,112 @@ header{
 
   .carousel-item img{
     border-radius: 5px;
+    width: 150%;
+    height: 150%;
+
   }
-  
+
+  .info{
+    display: block;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: small;
+    
+  }
  
+  .infoheader{
+    display: flex;
+    justify-content: space-between;
+    
+    margin-top: 5px;
+  }
+
+  .infoheader h4{
+    font-size: medium;
+    font-weight: bold;
+  }
+
+  .infofinal{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 5px;
+    justify-content: flex-start; /* Alinear los elementos en la parte superior */
+    align-items: flex-start; 
+  }
+
+ 
+
+  .custom-button{
+    background-color: transparent; /* Cambia el fondo a azul */
+    border: none;
+    cursor: pointer;
+    margin-top: 60px;
+    margin-left: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    
+}
+
+.custom-button:hover{
+  background-color: rgb(181, 147, 212);
+}
+
+.custom-button img {
+    max-width: 400px; /* Ajusta el tamaño de la imagen según tus preferencias */
+    max-height: 400px;
+    border-radius: 5px;
+}
+
+.custom-modal {
+  /* Ajusta el tamaño de la altura y el ancho según tus preferencias */
+  max-width: 800px; /* Ancho máximo del modal */
+  width: 100%; /* Ancho del modal */
+  margin: 0 auto; /* Centra el modal horizontalmente */
+  height: 150vh; /* Ajusta la altura al 100% del viewport */
+}
+
+.custom-dialog {
+  /* Ajusta el tamaño de la altura según tus preferencias */
+  max-height: 150vh; /* Altura máxima del modal (el 80% de la altura del viewport) */
+}
+
+/* Ajusta otros estilos según tus preferencias */
+.custom-dialog .modal-content {
+width: 150%;
+text-align: center;
+justify-content: space-between;
+}
+
+.custom-dialog .modal-body {
+ text-align: center;
+ align-items: center;
+}
+
+.custom-dialog .modal-footer {
+align-items: center;
+justify-content: center;}
+
+.modal-footer .custom-button{
+  background-color: rgb(181, 147, 212);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.services-container {
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap;
+  margin: 10px;
+}
+
+.service-item {
+  width: 300px; /* Ancho de cada servicio */
+  margin-right: 10px;
+  background-color: #f0f0f0; /* Color de fondo del servicio */
+  padding: 10px;
+  scroll-snap-align: start;
+  border-radius: 5px;
+margin-bottom: 10px;
+}
