@@ -12,7 +12,7 @@
         <header>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
+                    <a class="nav-link active" aria-current="page" href="index.php">
                         <img src="img/casa.png">
                     </a>
                     <p class="hover-text">Página principal</p>
@@ -24,7 +24,7 @@
                     <p class="hover-text">Reserves</p>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="index.php?r=login">
                         <img src="img/user.png">
                     </a>
                     <p class="hover-text">Perfil</p>

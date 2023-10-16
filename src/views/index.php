@@ -9,7 +9,7 @@
     <title>Apartaments Figuerencs</title>
 </head>
     <body>
-       <?php include "src/controls/mainmenu.php"; ctrlMenu();?>
+       <?php include "mainmenu.php"?>
 
        
 
