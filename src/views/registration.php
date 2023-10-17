@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="style/registration.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="app/app.js"></script>
+    <script src="app/registrationform.js"></script>
     <title>Apartaments Figuerencs</title>
 </head>
 
@@ -15,11 +15,14 @@
 
 
     <?php include "mainmenu.php"?>
+    <script>
+       
+    </script>
     <form method = "POST">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Login</label>
-                <input type="" class="form-control" name="login" id="inputEmail4" placeholder="">
+                <input type="" class="form-control" name="login" id="inputEmail4" requered="1" placeholder="">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Name</label>
@@ -61,7 +64,7 @@
                 <input type="text" class="form-control" name = "zip" id="inputZip">
             </div>
         </div>
-        <button type="submit" name="submit" class="btn btn-primary">Sign up</button>
+        <button type="submit" id = "submit" name="submit" class="btn btn-primary">Sign up</button>
         <small id="emailHelp" class="form-text text-muted"><a href="index.php?r=login">Alrady have an account? Log in!</a></small>
     </form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
