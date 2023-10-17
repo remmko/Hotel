@@ -12,17 +12,27 @@ font-family: 'PT Sans Caption', sans-serif;
 
 header{
     padding: 8px;
-    background-color: rgb(186, 186, 247);
+    background-color: rgb(187, 187, 187);
+    position: sticky;
+    top: 0;
+    color: #fff; /* Color de texto del encabezado */
+    z-index: 1000;
+    transition: top 0.3s;
+    display:flex;
+    justify-content: space-between;
 }
 
 
 nav{
   width: 100%;
+  margin-left: 30px;
 }
-
+.nav{
+  margin-left: 130px;
+}
 .nav-item {
     position: relative;
-    
+   
 }
 
 .hover-text {
@@ -183,16 +193,53 @@ nav{
     align-items: flex-start; 
   }
 
- 
+  .login {
+    position: relative;
+    background-color: rgb(155, 148, 148);
+    border-radius: 5px;
+    box-shadow: rgb(103, 103, 105) 0px 4px 0px 0px;
+    padding: 8px;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    width: 110px;
+    height: 30px;
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+    overflow: hidden;
+    margin-top: 3px;
+    font-weight: bold ;
+  }
+  
+  .login::before {
+    content: "";
+    background-color: rgb(25, 25, 26);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 700ms ease-in-out;
+    display: inline-block;
+  }
+  
+  .login:hover::before {
+    width: 100%;
+  }
 
   .custom-button{
     background-color: transparent; /* Cambia el fondo a azul */
     border: none;
     cursor: pointer;
-    margin-top: 70px;
+    margin-top: 80px;
     margin-left: 50px;
     margin-right: 10px;
     border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(130, 128, 128, 0.5); 
+
     
 }
 
@@ -258,3 +305,159 @@ justify-content: center;}
   border-radius: 5px;
 margin-bottom: 10px;
 }
+
+
+.calendar {
+  display: inline-flex;
+  border: 1px solid #f8eeee;
+  text-align: center;
+  padding: 10px;
+  width: 250px;
+  margin: 10px;
+  border-radius: 5px;
+
+}
+
+.calendar label{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  margin-right: 10px;
+}
+.calendar input {
+  width: 100%;
+  border-color: #f8eeee;
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.fechas{
+  background-color: blue;
+  border-radius: 5px;
+  border: none;
+  font-size: small;
+  font-weight: bold;
+  height: 35px;
+}
+
+.fechas:hover{
+  background-color: rgb(181, 147, 212);
+  transition: all .3s ease-in-out;
+}
+
+.button {
+  --width: 100px;
+  --height: 35px;
+  --tooltip-height: 35px;
+  --tooltip-width: 90px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color: #222;
+  --tooltip-color: #fff;
+  width: var(--width);
+  height: var(--height);
+  background: var(--button-color);
+  position: relative;
+  text-align: center;
+  border-radius: 0.45em;
+  font-family: "Arial";
+  transition: background 0.3s;
+}
+
+.button::before {
+  position: absolute;
+  content: attr(data-tooltip);
+  width: var(--tooltip-width);
+  height: var(--tooltip-height);
+  background-color: #555;
+  font-size: 0.9rem;
+  color: #fff;
+  border-radius: .25em;
+  line-height: var(--tooltip-height);
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+  left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.button::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #555;
+  left: calc(50% - 10px);
+  bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.button::after,.button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper,.text,.icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.text {
+  top: 0
+}
+
+.text,.icon {
+  transition: top 0.5s;
+}
+
+.icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.button:hover {
+  background: #222;
+}
+
+.button:hover .text {
+  top: -100%;
+}
+
+.button:hover .icon {
+  top: 0;
+}
+
+.button:hover:before,.button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:hover:after {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.button:hover:before {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+
+
