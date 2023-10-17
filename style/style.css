@@ -1,3 +1,10 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+font-family: 'Mukta', sans-serif;
+font-family: 'PT Sans Caption', sans-serif;
+}
+
+
 #star{
     width: 20px;
     height: 20px;
@@ -91,7 +98,7 @@ nav{
     margin-top: 10px;
     padding-top: 20px;
     padding-left: 20px;
-    margin-left: 20px;
+    margin-left: 40px;
   
 }
 
@@ -155,7 +162,7 @@ nav{
 
   .info{
     display: block;
-    margin-top: 5px;
+   
     margin-left: 10px;
     font-size: small;
     
@@ -188,8 +195,8 @@ nav{
     background-color: transparent; /* Cambia el fondo a azul */
     border: none;
     cursor: pointer;
-    margin-top: 60px;
-    margin-left: 20px;
+    margin-top: 70px;
+    margin-left: 50px;
     margin-right: 10px;
     border-radius: 5px;
     
