@@ -31,9 +31,7 @@
                 </li>
                
             </ul>
-            <button class="login">
-                Log in
-            </button>
+        
         </header>
         
     </body>

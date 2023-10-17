@@ -163,12 +163,11 @@ nav{
     height: 150%;
 
   }
-<<<<<<< HEAD
+
   
  #emailHelp{
     margin-left: 30px;
  }
-=======
 
   .info{
     display: block;
@@ -241,7 +240,6 @@ nav{
     border: none;
     cursor: pointer;
     margin-top: 80px;
-    margin-left: 50px;
     margin-right: 10px;
     border-radius: 5px;
     box-shadow: 5px 5px 5px rgba(130, 128, 128, 0.5); 
@@ -311,9 +309,6 @@ justify-content: center;}
   border-radius: 5px;
 margin-bottom: 10px;
 }
-<<<<<<< HEAD
->>>>>>> 7d25a4a (Semana 2)
-=======
 
 
 .calendar {
@@ -469,5 +464,3 @@ margin-bottom: 10px;
 }
 
 
-
->>>>>>> f7387a6 (Testing pull)
