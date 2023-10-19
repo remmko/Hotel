@@ -1,7 +1,8 @@
 <?php
     error_reporting(E_ERROR | E_PARSE);
     include "src/controls/index.php";
-
+    include "src/controls/login.php";
+    include "src/controls/registration.php";
     $r = $_REQUEST["r"];
 
     if($r==""){
