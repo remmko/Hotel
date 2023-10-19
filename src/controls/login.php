@@ -22,7 +22,7 @@
                 $query = "select password from Usuario where login = '".$_POST['login']."';";
                 $result = $conn->query($query);
                 $row = $result->fetch();               
-                if($row[0]==$_POST['password']){
+                if($row[0]==hash('sha256',$_POST['password'])){
                     echo "Succesful";
                 }else{
                     echo "Wrong login or password";

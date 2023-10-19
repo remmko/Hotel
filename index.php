@@ -4,6 +4,9 @@
     include "src/controls/login.php";
     include "src/controls/registration.php";
     include "src/controls/reserva.php";
+    include "src/controls/adminpanel.php";
+    include "src/controls/usermod.php";
+
     $r = $_REQUEST["r"];
 
     if($r==""){
@@ -12,8 +15,8 @@
         ctrlLogin();
     }else if ($r=="registration"){
         ctrlRegistation();
-    } else if ($r=="reserva"){
-        ctrlReserva();
+    }else if ($r=="usermod"){
+        ctrlUser();
     }
     
 ?>
