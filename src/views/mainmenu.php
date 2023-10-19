@@ -18,7 +18,7 @@
                     <p class="hover-text">Página principal</p>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="index.php?r=reserva">
                         <img id="star" src="img/estrella.png">
                     </a>
                     <p class="hover-text">Reserves</p>
@@ -29,7 +29,7 @@
                     </a>
                     <p class="hover-text">Perfil</p>
                 </li>
-               
+             
             </ul>
         </header>
         
