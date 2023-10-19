@@ -23,7 +23,7 @@
                 $result = $conn->query($query);
                 $row = $result->fetch();               
                 if($row[0]==$_POST['password']){
-                    echo "Succesful";
+                    header("Location: index.php?r=usermod");
                 }else{
                     echo "Wrong login or password";
                 }

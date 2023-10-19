@@ -1,3 +1,7 @@
+<?php
+$usuario_nombre = "Nombre del usuario";
+$usuario_apellidos = "Apellidos del usuario";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php include "mainmenu.php"?>
+    <h1>Perfil de <?php echo $usuario_nombre . ' ' . $usuario_apellidos; ?></h1>
 </body>
 </html>
