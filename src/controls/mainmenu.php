@@ -1,5 +1,6 @@
+
 <?php
-    function ctrlMenu(){
-        include "src/views/mainmenu.php";
-    }
-?>
+function ctrlMenu($request, $response, $container){
+    $response->setTemplate("mainmenu.php");
+    return $response;
+}

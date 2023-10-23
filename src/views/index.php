@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link  type="text/css" rel="stylesheet" href="style/style.css">
+    <link  type="text/css" rel="stylesheet" href="assets/style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="app/app.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,14 +18,14 @@
             <div class="container-input">
                 <input type="text" placeholder="Buscar" name="text" class="input">
                 <button> 
-                    <img src="img/lupa.png">
+                    <img src="assets/img/lupa.png">
                 </button>
             </div>
         </div>
        
         <!-- Button trigger modal -->
         <button type="button" class="btn custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src="img/1.webp" alt=""> 
+            <img src="assets/img/1.webp" alt=""> 
             <div class="info"> 
                 <div class="infoheader">
                 <h4>Apartament amb grans vistes al camp</h4> 
@@ -59,19 +59,19 @@
                     
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img/1.webp" class="d-block w-100" alt="Slide 1">
+                            <img src="assets/img/1.webp" class="d-block w-100" alt="Slide 1">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/2.webp" class="d-block w-100" alt="Slide 2">
+                            <img src="assets/img/2.webp" class="d-block w-100" alt="Slide 2">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/3.webp" class="d-block w-100" alt="Slide 3">
+                            <img src="assets/img/3.webp" class="d-block w-100" alt="Slide 3">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/4.webp" class="d-block w-100" alt="Slide 4">
+                            <img src="assets/img/4.webp" class="d-block w-100" alt="Slide 4">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/5.webp" class="d-block w-100" alt="Slide 5">
+                            <img src="assets/img/5.webp" class="d-block w-100" alt="Slide 5">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -140,45 +140,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src="img/1.webp" alt=""> 
-            <div class="info"> 
-                <div class="infoheader">
-                <h4>Apartament amb grans vistes al camp</h4> 
-                <p>123€</p>
-                </div>
-                <div class="infofinal">
-                <p>Figueres, Catalunya, Espanya</p>
-                <p>4 hostes · 2 habitacions · 2 llits · 1 bany</p>
-                <div>
-            </div>
-        </button>
-        <button type="button" class="btn custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src="img/1.webp" alt=""> 
-            <div class="info"> 
-                <div class="infoheader">
-                <h4>Apartament amb grans vistes al camp</h4> 
-                <p>123€</p>
-                </div>
-                <div class="infofinal">
-                <p>Figueres, Catalunya, Espanya</p>
-                <p>4 hostes · 2 habitacions · 2 llits · 1 bany</p>
-                <div>
-            </div>
-        </button>
-        <button type="button" class="btn custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src="img/1.webp" alt=""> 
-            <div class="info"> 
-                <div class="infoheader">
-                <h4>Apartament amb grans vistes al camp</h4> 
-                <p>123€</p>
-                </div>
-                <div class="infofinal">
-                <p>Figueres, Catalunya, Espanya</p>
-                <p>4 hostes · 2 habitacions · 2 llits · 1 bany</p>
-                <div>
-            </div>
-        </button>
+       
         
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

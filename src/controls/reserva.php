@@ -1,5 +1,5 @@
 <?php
-    function ctrlReserva(){
-        include "src/views/reserva.php";
+    function ctrlReserva($request, $response, $container){
+        $response->setTemplate("reserva.php");
+        return $response;
     }
-?>

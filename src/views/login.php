@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link  type="text/css" rel="stylesheet" href="style/login.css">
+    <link  type="text/css" rel="stylesheet" href="assets/style/login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="app/app.js"></script>
     <title>Apartaments Figuerencs</title>
@@ -13,13 +13,13 @@
 
         <?php include "mainmenu.php"?>
         <form method = "POST">
+            <h3>Log In</h3>
             <div class="form-group">
-                <label for="exampleInputEmail1">Login</label>
-                <input type="text" class="form-control" name ="login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Login">
+                <input type="text" class="form-control" name ="user"  value="<?php echo $user;?>" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Login">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" name ="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" name ="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

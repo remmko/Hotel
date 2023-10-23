@@ -1,0 +1,131 @@
+/* Apply styles to the body and form */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light box shadow */
+    border-radius: 5px;
+    margin-top: 20px;
+}
+form .form-row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+input{
+    margin: 0 5px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+form .form-group {
+    margin-bottom: 15px;
+    padding: 5px;
+}
+/* Style form labels */
+label {
+    font-weight: bold;
+    color: #333; /* Dark gray text */
+}
+
+input:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+h3{
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Style form inputs */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+/* Style the "Sign up" button */
+.btn-primary {
+    background-color: #007bff; /* Blue button color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Style the "Already have an account?" link */
+.form-text a {
+    color: #007bff; /* Blue link color */
+    text-decoration: none;
+}
+
+.form-text a:hover {
+    text-decoration: underline;
+}
+
+.ov-btn-slide-left {
+    background: #fff; /* color de fondo */
+    color: #4741d7; /* color de fuente */
+    border: 2px solid #4741d7; /* tamaño y color de borde */
+    padding: 16px 20px;
+    border-radius: 3px; /* redondear bordes */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    width: 660px;
+    height: 45px;
+    text-align: center;
+    line-height: 15px;
+margin-bottom: 20px;  }
+  .ov-btn-slide-left:hover {
+    color: #fff; /* color de fuente hover */
+  }
+  .ov-btn-slide-left::after {
+    content: "";
+    background: #4741d7; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  .ov-btn-slide-left:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+
+  #emailHelp{
+    text-align: center;
+    margin-left: auto;
+  }
