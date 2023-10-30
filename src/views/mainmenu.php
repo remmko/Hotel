@@ -29,6 +29,16 @@
                     </a>
                     <p class="hover-text">Perfil</p>
                 </li>
+
+                <li>
+                    Hello <?php echo $_SESSION["login"]?>
+                </li>
+
+                <li>
+                    <a class="nav-link" href="index.php?r=logout">
+                        <img src="img/user.png">
+                    </a>
+                </li>
                
             </ul>
         </header>

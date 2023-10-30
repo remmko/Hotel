@@ -1,6 +1,5 @@
 <?php
-$usuario_nombre = "Nombre del usuario";
-$usuario_apellidos = "Apellidos del usuario";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

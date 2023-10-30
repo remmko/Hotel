@@ -5,6 +5,7 @@
     include "src/controls/registration.php";
     include "src/controls/usermod.php";
     include "src/controls/adminpanel.php";
+    include "src/controls/reserve.php";
     $r = $_REQUEST["r"];
 
     if($r==""){
@@ -17,5 +18,9 @@
         ctrlUser();
     }else if ($r=="adminpanel"){
         ctrlAdmin();
+    }else if($r == "logout"){
+        session_destroy();
+        header("Location: index.php");
+        die();
     }
 ?>

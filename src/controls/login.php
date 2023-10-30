@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     function ctrlLogin(){
         include "src/views/login.php";
         
@@ -24,6 +24,11 @@
                 $row = $result->fetch();               
                 if($row[0]==hash('sha256',$_POST['password'])){
                     header("Location: index.php?r=usermod");
+                    $_SESSION["is_auth"]==true;
+                    $query = "select id from Usuario where login = '".$_POST['login']."';";
+                    $result = $conn->query($query);
+                    $row = $result->fetch(); 
+                    $_SESSION["userid"] = $row[0];
                 }else{
                     echo "Wrong login or password";
                 }
@@ -34,4 +39,7 @@
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
+
+
+    
 ?>
