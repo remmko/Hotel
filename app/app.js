@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (prevScrollPos > currentScrollPos) {
             header.style.top = "0";
         } else {
-            header.style.top = "-60px"; // Ajusta el valor según la altura de tu encabezado
+            header.style.top = "-60px"; // Ajusta el valor según la altura de  encabezado
         }
         prevScrollPos = currentScrollPos;
     }

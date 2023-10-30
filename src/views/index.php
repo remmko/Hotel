@@ -140,47 +140,9 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src="img/1.webp" alt=""> 
-            <div class="info"> 
-                <div class="infoheader">
-                <h4>Apartament amb grans vistes al camp</h4> 
-                <p>123€</p>
-                </div>
-                <div class="infofinal">
-                <p>Figueres, Catalunya, Espanya</p>
-                <p>4 hostes · 2 habitacions · 2 llits · 1 bany</p>
-                <div>
-            </div>
-        </button>
-        <button type="button" class="btn custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src="img/1.webp" alt=""> 
-            <div class="info"> 
-                <div class="infoheader">
-                <h4>Apartament amb grans vistes al camp</h4> 
-                <p>123€</p>
-                </div>
-                <div class="infofinal">
-                <p>Figueres, Catalunya, Espanya</p>
-                <p>4 hostes · 2 habitacions · 2 llits · 1 bany</p>
-                <div>
-            </div>
-        </button>
-        <button type="button" class="btn custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src="img/1.webp" alt=""> 
-            <div class="info"> 
-                <div class="infoheader">
-                <h4>Apartament amb grans vistes al camp</h4> 
-                <p>123€</p>
-                </div>
-                <div class="infofinal">
-                <p>Figueres, Catalunya, Espanya</p>
-                <p>4 hostes · 2 habitacions · 2 llits · 1 bany</p>
-                <div>
-            </div>
-        </button>
+      
         
-
+    
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     </body>
