@@ -9,44 +9,141 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Mukta&family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
     <title>Apartaments Figuerencs</title>
+
 </head>
 <body>
     <?php include "mainmenu.php"?>
+    <div id="body">
+        <div class="menu">
+            <div class="menu-item" onclick ="addroom()">Add Rooms</div>
+            <div class="menu-item" onclick="allRooms()">Apartments</div>
+            <div class="menu-item"onclick ="reservations()">Reservations</div>
+            <div class="menu-item"onclick="allUsers()">Users</div>
+        </div>
 
-    <h1>Add Apartment</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <label for="Titulo">Titulo: </label>
-        <input type="text" name="Titulo" required><br>
-        
-        <label for="DireccionPostal">DireccionPostal: </label>
-        <input type="text" name="DireccionPostal" required><br>
-        
-        <label for="Latitud">Latitud: </label>
-        <input type="text" name="Latitud" required><br>
-        
-        <label for="Longitud">Longitud: </label>
-        <input type="text" name="Longitud" required><br>
-        
-        <label for="Descripcion">Descripcion: </label>
-        <textarea name="Descripcion" required></textarea><br>
-        
-        <label for="MetrosCuadrados">MetrosCuadrados: </label>
-        <input type="number" name="MetrosCuadrados" required><br>
-        
-        <label for="NumeroHabitaciones">NumeroHabitaciones: </label>
-        <input type="number" name="NumeroHabitaciones" required><br>
-        
-        <label for="PrecioDiaTemporadaBaja">PrecioDiaTemporadaBaja: </label>
-        <input type="number" name="PrecioDiaTemporadaBaja" required><br>
-        
-        <label for="PrecioDiaTemporadaAlta">PrecioDiaTemporadaAlta: </label>
-        <input type="number" name="PrecioDiaTemporadaAlta" required><br>
-        
-        <label for="img">Image: </label>
-        <input type="file" name="img" required><br>
-        
-        <input type="submit" value="Add">
-    </form>
+        <div id="mainBody">
+            
+        </div>
+    </div>
+<script src="app/adminpanel.js"></script>
 </body>
 </html>
+
+
+
+<?php
+             $servername = "projectdb.ddns.net";
+             $username = "hoteladmin";
+             $password = "opensource";
+             $database = "hotel";
+         
+             try {
+                 $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+         
+             } catch (PDOException $e) {
+                 die("Error: " . $e->getMessage());
+             }
+
+             
+            $query = "SELECT COUNT(ID) from Apartamento";
+            $result = $conn->query($query);
+            $row = $result->fetch();
+        
+            $count = $row[0];
+           
+            $id = 1; 
+            for ($i = 0; $i < $count; $i++) {
+                ?>
+                <script>
+                    var id = <?php echo $id; ?>;
+                    var mainBody = document.getElementById("mainBody");
+                    mainBody.innerHTML="";
+                    var button = document.createElement("button");
+                    button.setAttribute("type", "button");
+                    button.setAttribute("class", "btn custom-button");
+                    button.setAttribute("data-bs-toggle", "modal");
+                    button.setAttribute("data-bs-target", "#exampleModal");
+                    button.setAttribute("onclick","reserve(<?php echo $id?>)")
+
+                    var img = document.createElement("img");
+                    img.setAttribute("src", '<?php
+                        $query = "SELECT img from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>');
+                    img.setAttribute("alt", "");
+
+                    var infoDiv = document.createElement("div");
+                    infoDiv.setAttribute("class", "info");
+
+                    var infoHeaderDiv = document.createElement("div");
+                    infoHeaderDiv.setAttribute("class", "infoheader");
+
+                    var h4 = document.createElement("h4");
+                    h4.textContent = "<?php
+                        $query = "SELECT Titulo from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>";
+
+                    var priceP = document.createElement("p");
+                    priceP.textContent = "<?php
+                        $query = "SELECT PrecioDiaTemporadaBaja from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>€";
+
+                    infoHeaderDiv.appendChild(h4);
+                    infoHeaderDiv.appendChild(priceP);
+
+                    var infoFinalDiv = document.createElement("div");
+                    infoFinalDiv.setAttribute("class", "infofinal");
+
+                    var locationP = document.createElement("p");
+                    locationP.textContent = "<?php
+                        $query = "SELECT DireccionPostal from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>";
+
+                    var detailsP = document.createElement("p");
+                    detailsP.textContent = "Habitacions: <?php
+                        $query = "SELECT NumeroHabitaciones from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>";
+
+                    infoFinalDiv.appendChild(locationP);
+                    infoFinalDiv.appendChild(detailsP);
+
+                    button.appendChild(img);
+                    button.appendChild(infoDiv);
+                    infoDiv.appendChild(infoHeaderDiv);
+                    infoDiv.appendChild(infoFinalDiv);
+                    mainBody.appendChild(button);
+
+                </script>
+                <?php
+                 $query = "SELECT COUNT(ID) from Apartamento";
+                 $result = $conn->query($query);
+                 $row = $result->fetch();
+             
+                 $count = $row[0];
+                $id++; 
+            }
+            ?>
+
+
+
 

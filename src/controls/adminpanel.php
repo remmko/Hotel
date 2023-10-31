@@ -1,10 +1,11 @@
 <?php
-    function ctrlAdmin(){
-        include "src/views/adminpanel.php";
-    }
+    session_start();
+    
 
+function ctrlAdmin(){
+    include "src/views/adminpanel.php";
+}
 
-// Подключение к базе данных
 $servername = "projectdb.ddns.net";
 $username = "hoteladmin";
 $password = "opensource";
@@ -18,47 +19,47 @@ try {
 }
 
 
+if ($_SESSION["is_auth"]&&$_SESSION["role"]=="gestor"){
 
-// Обработка POST-запроса
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Получение данных из формы
-    $titulo = $_POST['Titulo'];
-    $direccionPostal = $_POST['DireccionPostal'];
-    $latitud = $_POST['Latitud'];
-    $longitud = $_POST['Longitud'];
-    $descripcion = $_POST['Descripcion'];
-    $metrosCuadrados = $_POST['MetrosCuadrados'];
-    $numeroHabitaciones = $_POST['NumeroHabitaciones'];
-    $precioDiaTemporadaBaja = $_POST['PrecioDiaTemporadaBaja'];
-    $precioDiaTemporadaAlta = $_POST['PrecioDiaTemporadaAlta'];
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $titulo = $_POST['Titulo'];
+        $direccionPostal = $_POST['DireccionPostal'];
+        $latitud = $_POST['Latitud'];
+        $longitud = $_POST['Longitud'];
+        $descripcion = $_POST['Descripcion'];
+        $metrosCuadrados = $_POST['MetrosCuadrados'];
+        $numeroHabitaciones = $_POST['NumeroHabitaciones'];
+        $precioDiaTemporadaBaja = $_POST['PrecioDiaTemporadaBaja'];
+        $precioDiaTemporadaAlta = $_POST['PrecioDiaTemporadaAlta'];
 
-    // Загрузка изображения
-    $img = $_FILES['img']['name'];
-    $img_tmp = $_FILES['img']['tmp_name'];
-    move_uploaded_file($img_tmp, "img/$img");
+        $img = $_FILES['img']['name'];
+        $img_tmp = $_FILES['img']['tmp_name'];
+        move_uploaded_file($img_tmp, "img/$img");
 
-    // SQL-запрос для вставки данных в базу данных
-    $sql = "INSERT INTO Apartamento (Titulo, DireccionPostal, Latitud, Longitud, Descripcion, MetrosCuadrados, NumeroHabitaciones, PrecioDiaTemporadaBaja, PrecioDiaTemporadaAlta, img) 
-            VALUES (:titulo, :direccionPostal, :latitud, :longitud, :descripcion, :metrosCuadrados, :numeroHabitaciones, :precioDiaTemporadaBaja, :precioDiaTemporadaAlta, :img)";
-    
-    try {
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([
-            ':titulo' => $titulo,
-            ':direccionPostal' => $direccionPostal,
-            ':latitud' => $latitud,
-            ':longitud' => $longitud,
-            ':descripcion' => $descripcion,
-            ':metrosCuadrados' => $metrosCuadrados,
-            ':numeroHabitaciones' => $numeroHabitaciones,
-            ':precioDiaTemporadaBaja' => $precioDiaTemporadaBaja,
-            ':precioDiaTemporadaAlta' => $precioDiaTemporadaAlta,
-            ':img' => "img/".$img
-        ]);
+        $sql = "INSERT INTO Apartamento (Titulo, DireccionPostal, Latitud, Longitud, Descripcion, MetrosCuadrados, NumeroHabitaciones, PrecioDiaTemporadaBaja, PrecioDiaTemporadaAlta, img) 
+                VALUES (:titulo, :direccionPostal, :latitud, :longitud, :descripcion, :metrosCuadrados, :numeroHabitaciones, :precioDiaTemporadaBaja, :precioDiaTemporadaAlta, :img)";
         
-        echo "Отель успешно добавлен в базу данных!";
-    } catch (PDOException $e) {
-        echo "Ошибка при добавлении отеля: " . $e->getMessage();
-    }
+        try {
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([
+                ':titulo' => $titulo,
+                ':direccionPostal' => $direccionPostal,
+                ':latitud' => $latitud,
+                ':longitud' => $longitud,
+                ':descripcion' => $descripcion,
+                ':metrosCuadrados' => $metrosCuadrados,
+                ':numeroHabitaciones' => $numeroHabitaciones,
+                ':precioDiaTemporadaBaja' => $precioDiaTemporadaBaja,
+                ':precioDiaTemporadaAlta' => $precioDiaTemporadaAlta,
+                ':img' => "img/".$img
+            ]);
+            
+            echo "Succesful added!";
+        } catch (PDOException $e) {
+            echo "Ошибка при добавлении отеля: " . $e->getMessage();
+        } 
+    }  
 }
+
+
 ?>

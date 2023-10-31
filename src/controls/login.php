@@ -1,9 +1,14 @@
 <?php
+
+
 session_start();
 
 function ctrlLogin() {
     include "src/views/login.php";
 }
+
+
+
 
 $servername = "projectdb.ddns.net";
 $username = "hoteladmin";
@@ -14,7 +19,7 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    
     
 
     if (isset($_POST["submit"])) {
@@ -23,6 +28,7 @@ try {
             $result = $conn->query($query);
             $row = $result->fetch();
             if ($row[0] == hash('sha256', $_POST['password'])) {
+                echo "true";
                 $_SESSION["is_auth"] = true;
                 $query = "select id from Usuario where login = '" . $_POST['login'] . "';";
                 $result = $conn->query($query);
@@ -33,13 +39,13 @@ try {
                 $query = "SELECT Rol FROM Usuario WHERE id = " . $_SESSION["userid"];
                 $result = $conn->query($query);
                 $row = $result->fetch();
+                $_SESSION["role"]= $row["Rol"];
 
                 if ($row && $row["Rol"] === "gestor") {
                     header("Location: index.php?r=adminpanel"); 
                     exit();
                 } else {
-                    
-                    header("Location: index.php?=usermod");
+                    header("Location: index.php?r=usermod");
                     exit();
                 }
             } else {
@@ -54,6 +60,6 @@ try {
 
     $conn = null;
 } catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
+    echo "ErrorLogin: " . $e->getMessage();
 }
 ?>

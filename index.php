@@ -11,7 +11,17 @@
     if($r==""){
         ctrlIndex();
     }else if($r == "login"){
-        ctrlLogin();
+        if($_SESSION["is_auth"]){
+            if($_SESSION["role"]=="gestor"){
+                header("Location: index.php?r=adminpanel");
+            }else{
+                header("Location: index.php?r=usermod");
+            }
+        }else{
+            echo false;
+            ctrlLogin();
+        }
+       
     }else if ($r=="registration"){
         ctrlRegistation();
     }else if ($r=="usermod"){

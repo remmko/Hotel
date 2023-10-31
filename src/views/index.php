@@ -23,129 +23,129 @@
             </div>
         </div>
        
-        <!-- Button trigger modal -->
-        <button type="button" class="btn custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src="img/1.webp" alt=""> 
-            <div class="info"> 
-                <div class="infoheader">
-                <h4>Apartament amb grans vistes al camp</h4> 
-                <p>123€</p>
-                </div>
-                <div class="infofinal">
-                <p>Figueres, Catalunya, Espanya</p>
-                <p>4 hostes · 2 habitacions · 2 llits · 1 bany</p>
-                <div>
-            </div>
-        </button>
+     
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable custom-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div id="indicators">
-                        <ol class="carousel-indicators">
-                            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-                            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-                            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-                            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
-                            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></li>
-                        </ol>
-                    </div>
-                    
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="img/1.webp" class="d-block w-100" alt="Slide 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/2.webp" class="d-block w-100" alt="Slide 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/3.webp" class="d-block w-100" alt="Slide 3">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/4.webp" class="d-block w-100" alt="Slide 4">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/5.webp" class="d-block w-100" alt="Slide 5">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                
-                    <div class="info"> 
-                        <div class="infoheader">
-                            <h4>Apartament amb grans vistes al camp</h4> 
-                            <p>123€</p>
-                        </div>
-                        <div class="infofinal">
-                            <p>Figueres, Catalunya, Espanya</p>
-                            <p>4 hostes · 2 habitacions · 2 llits · 1 bany</p>
-                            <p>Latitud</p>
-                            <p>Longitud</p>
-                            <p>Descripció curta</p>
-                            <p>Metres quadrats</p>
-                            <div class="container">
-                                <div class="services-container">
-                                    <div class="service-item">Aire Acondicionado</div>
-                                    <div class="service-item">Terraza</div>
-                                    <div class="service-item">Piscina</div>
-                                    <div class="service-item">Cocina</div>
-                                    <div class="service-item">Calefacción</div>
-                                    <div class="service-item">Wifi</div>
-                                    <div class="service-item">TV</div>
-                                    <div class="service-item">Lavadora</div>
-                                    <div class="service-item">Plancha</div>
-                                    <div class="service-item">Secador de pelo</div>
-                                    <div class="service-item">Champú</div>
-                                    <div class="service-item">Aparcamiento</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="calendar">
-                        <label for="start">Desde:</label>
-                        <input type="date" id="start">
-                    </div>
-                    <div class="calendar">
-                        <label for="end">Hasta:</label>
-                        <input type="date" id="end">
-                    </div>
-                    <button class="fechas">Buscar</button>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tancar</button>
-                
-                <div data-tooltip="Price:-$20" class="button">
-                    <div class="button-wrapper">
-                        <div class="text">Buy Now</div>
-                            <span class="icon">
-                                <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <?php
+             $servername = "projectdb.ddns.net";
+             $username = "hoteladmin";
+             $password = "opensource";
+             $database = "hotel";
+         
+             try {
+                 $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+         
+             } catch (PDOException $e) {
+                 die("Error: " . $e->getMessage());
+             }
+
+             
+            $query = "SELECT COUNT(ID) from Apartamento";
+            $result = $conn->query($query);
+            $row = $result->fetch();
+        
+            $count = $row[0];
+           
+            $id = 1; 
+            for ($i = 0; $i < $count; $i++) {
+                ?>
+                <script>
+                    var id = <?php echo $id; ?>;
+                    var button = document.createElement("button");
+                    button.setAttribute("type", "button");
+                    button.setAttribute("class", "btn custom-button");
+                    button.setAttribute("data-bs-toggle", "modal");
+                    button.setAttribute("data-bs-target", "#exampleModal");
+                    button.setAttribute("onclick","reserve(<?php echo $id?>)")
+
+                    var img = document.createElement("img");
+                    img.setAttribute("src", '<?php
+                        $query = "SELECT img from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>');
+                    img.setAttribute("alt", "");
+
+                    var infoDiv = document.createElement("div");
+                    infoDiv.setAttribute("class", "info");
+
+                    var infoHeaderDiv = document.createElement("div");
+                    infoHeaderDiv.setAttribute("class", "infoheader");
+
+                    var h4 = document.createElement("h4");
+                    h4.textContent = "<?php
+                        $query = "SELECT Titulo from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>";
+
+                    var priceP = document.createElement("p");
+                    priceP.textContent = "<?php
+                        $query = "SELECT PrecioDiaTemporadaBaja from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>€";
+
+                    infoHeaderDiv.appendChild(h4);
+                    infoHeaderDiv.appendChild(priceP);
+
+                    var infoFinalDiv = document.createElement("div");
+                    infoFinalDiv.setAttribute("class", "infofinal");
+
+                    var locationP = document.createElement("p");
+                    locationP.textContent = "<?php
+                        $query = "SELECT DireccionPostal from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>";
+
+                    var detailsP = document.createElement("p");
+                    detailsP.textContent = "Habitacions: <?php
+                        $query = "SELECT NumeroHabitaciones from Apartamento where id =".$id.";";
+                        $result = $conn->query($query);
+                        $row = $result->fetch();
+
+                        $count = $row[0];
+                        echo $count;?>";
+
+                    infoFinalDiv.appendChild(locationP);
+                    infoFinalDiv.appendChild(detailsP);
+
+                    button.appendChild(img);
+                    button.appendChild(infoDiv);
+                    infoDiv.appendChild(infoHeaderDiv);
+                    infoDiv.appendChild(infoFinalDiv);
+                    document.body.appendChild(button);
+
+                </script>
+                <?php
+                 $query = "SELECT COUNT(ID) from Apartamento";
+                 $result = $conn->query($query);
+                 $row = $result->fetch();
+             
+                 $count = $row[0];
+                $id++; 
+            }
+            ?>
+
+             
+
+            
+
+           
+
       
         
-    
+            <script src="app/reserve.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
-
-<!-- data-bs-theme="dark" -->

@@ -31,7 +31,7 @@
         
         $conn = null;
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        echo "ErrorRegistration: " . $e->getMessage();
     }
 
  
