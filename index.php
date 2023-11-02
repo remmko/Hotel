@@ -1,11 +1,20 @@
 <?php
     error_reporting(E_ERROR | E_PARSE);
+    include "src/config.php";
     include "src/controls/index.php";
     include "src/controls/login.php";
     include "src/controls/registration.php";
     include "src/controls/usermod.php";
     include "src/controls/adminpanel.php";
     include "src/controls/reserve.php";
+    include "src/controls/registerForm.php";
+    
+
+
+    $request = new \Emeset\Request();
+    $response = new \Emeset\Response();
+    $container = new \Emeset\Container($config);
+
     $r = $_REQUEST["r"];
 
     if($r==""){
@@ -23,7 +32,7 @@
         }
        
     }else if ($r=="registration"){
-        ctrlRegistation();
+        ctrlRegistration($request, $response, $container);
     }else if ($r=="usermod"){
         ctrlUser();
     }else if ($r=="adminpanel"){
@@ -31,6 +40,9 @@
     }else if($r == "logout"){
         session_destroy();
         header("Location: index.php");
-        
+    }else if($r == "register"){
+        ctrlRegister($request, $response, $container);
     }
+
+
 ?>

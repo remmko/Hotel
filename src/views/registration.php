@@ -18,7 +18,7 @@
     <script>
        
     </script>
-    <form method = "POST">
+    <form action = "index.php?r=register" method = "POST">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Login</label>

@@ -15,7 +15,7 @@ try {
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die("Ошибка подключения к базе данных: " . $e->getMessage());
+    die("Error database connection: " . $e->getMessage());
 }
 
 
@@ -56,7 +56,7 @@ if ($_SESSION["is_auth"]&&$_SESSION["role"]=="gestor"){
             
             echo "Succesful added!";
         } catch (PDOException $e) {
-            echo "Ошибка при добавлении отеля: " . $e->getMessage();
+            echo "Add hotel error: " . $e->getMessage();
         } 
     }  
 }

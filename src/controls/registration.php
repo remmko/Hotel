@@ -1,38 +1,31 @@
 <?php
-    function ctrlRegistation(){
-        include "src/views/registration.php";
-    }
+ 
+ function ctrlRegister($request, $response, $container){
+
+    $registration = $container-> registration();
+    $name = $request -> get(INPUT_POST, "name");
+    $surename = $request -> get(INPUT_POST, "surname");
+    $phone = $request ->get (INPUT_POST, "phone");
+    $email = $request -> get(INPUT_POST, "email");
+    $address = $request -> get(INPUT_POST, "address");
+    $address2 = $request -> get (INPUT_POST, "address2");
+    $city = $request -> get(INPUT_POST, "city");
+    $zip = $request -> get(INPUT_POST, "zip");
+    $login = $request -> get(INPUT_POST, "login");
+    $password = $request -> get(INPUT_POST, "password");
+
+    $defaultRol = "cliente";
+
+    $password = hash("sha256", $password);
+
+    $registration -> add($name, $surename, $phone, $email, $defaultRol, $address, $address2, $city, $zip, $login, $password);
+
+    $response -> redirect("location: index.php");
+    return $response;
 
 
-    $servername = "projectdb.ddns.net"; 
-    $username = "hoteladmin"; 
-    $password = "opensource"; 
-    $database = "hotel"; 
+ }
 
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      
-       
-
-        if (isset($_POST["submit"])){
-            if(isset($_POST["login"])&&isset($_POST["name"])&&isset($_POST["surename"])&&isset($_POST["email"])&&isset($_POST["password"])&&isset($_POST["phone"])&&isset($_POST["address"])&&isset($_POST["address2"])&&isset($_POST["city"])&&isset($_POST["zip"])){
-                $password = hash('sha256',$_POST["password"]);
-                $sql = "INSERT INTO Usuario (Nombre,Apellidos,Telefono,CorreoElectronico,Rol,Direccion,Direccion2,Ciudad,CodigoPostal,login,password) VALUES
-                ('".$_POST['name']."','".$_POST['surename']."','".$_POST['phone']."','".$_POST['email']."','cliente','".$_POST['address']."','".$_POST['address2']."','".$_POST['city']."','".$_POST['zip']."','".$_POST['login']."','".$password."');";
-                $stmt = $conn->prepare($sql);
-                $stmt->execute();
-
-
-               header("index.php?r=login");
-            }
-        }
-        
-        $conn = null;
-    } catch (PDOException $e) {
-        echo "ErrorRegistration: " . $e->getMessage();
-    }
 
  
 
