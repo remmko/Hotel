@@ -9,6 +9,7 @@
     include "src/controls/reserve.php";
     include "src/controls/registerForm.php";
     include "src/controls/loginForm.php";
+    include "src/controls/showuserinfo.php";
     
 
 
@@ -34,8 +35,8 @@
        
     }else if ($r=="registration"){
         ctrlRegistration($request, $response, $container);
-    }else if ($r=="usermod"){
-        ctrlUser();
+    }else if ($r=="userinfo"){
+        ctrlUser($request, $response, $container);
     }else if ($r=="adminpanel"){
         ctrlAdmin();
     }else if($r == "logout"){
@@ -45,6 +46,8 @@
         ctrlRegister($request, $response, $container);
     }else if($r =="validation"){
         ctrlValidation($request, $response, $container);
+    }else if ($r == "usermod"){
+        ctrlChangeinfo($request, $response, $container);
     }
 
 

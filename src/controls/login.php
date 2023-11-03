@@ -9,18 +9,20 @@ function ctrlValidation($request, $response, $container) {
     $password = $request -> get(INPUT_POST, "password");
 
     $login = $login->login($username, $password);
-
-
+ 
     if($login){
-        $_SESSION["is_auth"]==true;
-        $_SESSION["role"]== $login["Rol"];
+        $_SESSION["is_auth"] = true;
+        $_SESSION["role"] = $login["Rol"];
+        $_SESSION["login"] = $username;
         if($_SESSION["role"]=="gestor"){
-            $response -> redirect("Location: index.php?r=adminpanel");
+            header("Location: index.php?r=adminpanel");
+            return $response;
+        }else{
+            header("Location: index.php?r=userinfo");
             return $response;
         }
     }else{
-        echo "Wrong login or password";
-        $response -> redirect("Location: index.php?r=login");
+        header("Location: index.php?r=login");
     }
 
 

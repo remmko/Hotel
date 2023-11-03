@@ -11,10 +11,12 @@ namespace Daw;
 
 
         public function login($username, $password){
-         
+            
             $stm = $this->sql->prepare('select id, login, password, Rol from Usuario where login =:user;');
-            $stm->execute([':user' => $username]);
+            $stm->execute([':user'=>$username]);
             $result = $stm->fetch(\PDO::FETCH_ASSOC);
+      
+
             if(is_array($result) && $result["password"] == hash("sha256",$password)){
                 return $result;
             } else {

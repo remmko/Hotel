@@ -72,4 +72,12 @@ class Container
         return new \Daw\login($this->sql);
     }
 
+    public function change(){
+        return new \Daw\user($this->sql);
+    }
+
+    public function getInfo(){
+        return new \Daw\user($this->sql);
+    }
+
 }

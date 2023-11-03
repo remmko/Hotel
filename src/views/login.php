@@ -15,7 +15,7 @@
         <form action ="index.php?r=validation" method = "POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Login</label>
-                <input type="text" class="form-control" name ="login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Login">
+                <input type="text" class="form-control" name ="username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Login">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
