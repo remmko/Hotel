@@ -67,5 +67,9 @@ class Container
         return new \Daw\registration($this->sql);
     }
 
+    public function login(){
+
+        return new \Daw\login($this->sql);
+    }
 
 }

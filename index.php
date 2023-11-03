@@ -8,6 +8,7 @@
     include "src/controls/adminpanel.php";
     include "src/controls/reserve.php";
     include "src/controls/registerForm.php";
+    include "src/controls/loginForm.php";
     
 
 
@@ -28,7 +29,7 @@
             }
         }else{
             echo false;
-            ctrlLogin();
+            ctrlLogin($request, $response, $container);
         }
        
     }else if ($r=="registration"){
@@ -42,6 +43,8 @@
         header("Location: index.php");
     }else if($r == "register"){
         ctrlRegister($request, $response, $container);
+    }else if($r =="validation"){
+        ctrlValidation($request, $response, $container);
     }
 
 
