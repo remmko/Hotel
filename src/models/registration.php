@@ -10,16 +10,16 @@ namespace Daw;
         }
 
 
-        public function registration($name, $surname, $phone, $email, $defaultRol, $address, $address2, $city, $zip, $login, $password){
-            $sql = "INSERT INTO Usuario (Nombre,Apellidos,Telefono,CorreoElectronico,Rol,Direccion,Direccion2,Ciudad,CodigoPostal,login,password) VALUES 
-            (:name, :surename, :phone, :email, :rol :address, :address2, :city, :zip, :login, :password);";
+        public function registration($name, $surename, $phone, $email, $defaultRol, $address, $address2, $city, $zip, $login, $password){
+            $sql = "INSERT INTO Usuario (Nombre,Apellidos,Telefono,CorreoElectronico,Rol,Direccion,Direccion2,Ciudad,CodigoPostal,login,password) 
+            VALUES (:name, :surename, :phone, :email, :rol, :address, :address2, :city, :zip, :login, :password);";
 
 
             try {
-                $stmt = $conn->prepare($sql);
+                $stmt = $this->sql->prepare($sql);
                 $stmt->execute([
                     ':name' => $name,
-                    ':surename' => $surname,
+                    ':surename' => $surename,
                     ':phone' => $phone,
                     ':email' => $email,
                     ':rol' => $defaultRol,
@@ -39,5 +39,3 @@ namespace Daw;
         }
 
     }
-
-?>

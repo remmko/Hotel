@@ -4,7 +4,7 @@
 
     $registration = $container-> registration();
     $name = $request -> get(INPUT_POST, "name");
-    $surename = $request -> get(INPUT_POST, "surname");
+    $surename = $request -> get(INPUT_POST, "surename");
     $phone = $request ->get (INPUT_POST, "phone");
     $email = $request -> get(INPUT_POST, "email");
     $address = $request -> get(INPUT_POST, "address");
@@ -18,9 +18,9 @@
 
     $password = hash("sha256", $password);
 
-    $registration -> add($name, $surename, $phone, $email, $defaultRol, $address, $address2, $city, $zip, $login, $password);
+    $registration -> registration($name, $surename, $phone, $email, $defaultRol, $address, $address2, $city, $zip, $login, $password);
 
-    $response -> redirect("location: index.php");
+    $response -> redirect("Location: index.php?r=login");
     return $response;
 
 
