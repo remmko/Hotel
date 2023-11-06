@@ -30,4 +30,5 @@ include "models/Users.php";
 include "models/registration.php";
 include "models/login.php";
 include "models/user.php";
+include "models/rooms.php";
 

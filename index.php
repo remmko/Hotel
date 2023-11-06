@@ -10,6 +10,7 @@
     include "src/controls/registerForm.php";
     include "src/controls/loginForm.php";
     include "src/controls/showuserinfo.php";
+    include "src/controls/userReservation.php";
     
 
 
@@ -20,7 +21,7 @@
     $r = $_REQUEST["r"];
 
     if($r==""){
-        ctrlIndex();
+        ctrlIndex($request, $response, $container);
     }else if($r == "login"){
         if($_SESSION["is_auth"]){
             if($_SESSION["role"]=="gestor"){
@@ -38,7 +39,12 @@
     }else if ($r=="userinfo"){
         ctrlUser($request, $response, $container);
     }else if ($r=="adminpanel"){
-        ctrlAdmin();
+        if($_SESSION["is_auth"]&&$_SESSION["role"]=="gestor"){
+            ctrlAdmin();
+        }else{
+            header("Location: index.php");
+        }
+        
     }else if($r == "logout"){
         session_destroy();
         header("Location: index.php");
@@ -48,6 +54,10 @@
         ctrlValidation($request, $response, $container);
     }else if ($r == "usermod"){
         ctrlChangeinfo($request, $response, $container);
+    }else if($r == "myreserve"){
+        showReserve();
+    }else if($r == "reserve"){
+        ctrlReserve($request, $response, $container);
     }
 
 

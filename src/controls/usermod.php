@@ -16,7 +16,7 @@
         $password = hash("sha256", $password);
     
         $user -> change($name, $surename, $phone, $email, $address, $address2, $city, $zip, $login, $password);
-    
+        header("Location: index.php?r=userinfo");
         return $response;
 
     }

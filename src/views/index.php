@@ -26,46 +26,22 @@
      
 
             <?php
-             $servername = "projectdb.ddns.net";
-             $username = "hoteladmin";
-             $password = "opensource";
-             $database = "hotel";
-         
-             try {
-                 $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-         
-             } catch (PDOException $e) {
-                 die("Error: " . $e->getMessage());
-             }
-
-             
-            $query = "SELECT COUNT(ID) from Apartamento";
-            $result = $conn->query($query);
-            $row = $result->fetch();
-        
-            $count = $row[0];
-           
-            $id = 1; 
+            
+            $id = 0; 
             for ($i = 0; $i < $count; $i++) {
                 ?>
                 <script>
-                    var id = <?php echo $id; ?>;
                     var button = document.createElement("button");
                     button.setAttribute("type", "button");
                     button.setAttribute("class", "btn custom-button");
                     button.setAttribute("data-bs-toggle", "modal");
                     button.setAttribute("data-bs-target", "#exampleModal");
-                    button.setAttribute("onclick","reserve(<?php echo $id?>)")
+                    button.setAttribute("onclick","reserve(<?php echo $id+1?>)")
 
                     var img = document.createElement("img");
-                    img.setAttribute("src", '<?php
-                        $query = "SELECT img from Apartamento where id =".$id.";";
-                        $result = $conn->query($query);
-                        $row = $result->fetch();
-
-                        $count = $row[0];
-                        echo $count;?>');
+                    img.setAttribute("src", '<?php 
+                    echo $result[$id]["img"];
+                    ?>');
                     img.setAttribute("alt", "");
 
                     var infoDiv = document.createElement("div");
@@ -76,21 +52,12 @@
 
                     var h4 = document.createElement("h4");
                     h4.textContent = "<?php
-                        $query = "SELECT Titulo from Apartamento where id =".$id.";";
-                        $result = $conn->query($query);
-                        $row = $result->fetch();
-
-                        $count = $row[0];
-                        echo $count;?>";
+                         echo $result[$id]["Titulo"];
+                        ?>";
 
                     var priceP = document.createElement("p");
                     priceP.textContent = "<?php
-                        $query = "SELECT PrecioDiaTemporadaBaja from Apartamento where id =".$id.";";
-                        $result = $conn->query($query);
-                        $row = $result->fetch();
-
-                        $count = $row[0];
-                        echo $count;?>€";
+                      echo $result[$id]["PrecioDiaTemporadaAlta"];?>€";
 
                     infoHeaderDiv.appendChild(h4);
                     infoHeaderDiv.appendChild(priceP);
@@ -100,21 +67,11 @@
 
                     var locationP = document.createElement("p");
                     locationP.textContent = "<?php
-                        $query = "SELECT DireccionPostal from Apartamento where id =".$id.";";
-                        $result = $conn->query($query);
-                        $row = $result->fetch();
-
-                        $count = $row[0];
-                        echo $count;?>";
+                        echo $result[$id]["DireccionPostal"];?>";
 
                     var detailsP = document.createElement("p");
                     detailsP.textContent = "Habitacions: <?php
-                        $query = "SELECT NumeroHabitaciones from Apartamento where id =".$id.";";
-                        $result = $conn->query($query);
-                        $row = $result->fetch();
-
-                        $count = $row[0];
-                        echo $count;?>";
+                        echo $result[$id]["NumeroHabitaciones"];?>";
 
                     infoFinalDiv.appendChild(locationP);
                     infoFinalDiv.appendChild(detailsP);
@@ -127,12 +84,9 @@
 
                 </script>
                 <?php
-                 $query = "SELECT COUNT(ID) from Apartamento";
-                 $result = $conn->query($query);
-                 $row = $result->fetch();
-             
-                 $count = $row[0];
-                $id++; 
+                
+                
+                $id ++;
             }
             ?>
 

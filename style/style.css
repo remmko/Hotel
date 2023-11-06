@@ -254,8 +254,8 @@ nav{
 }
 
 .custom-button img {
-    max-width: 400px; /* Ajusta el tamaño de la imagen según tus preferencias */
-    max-height: 400px;
+    width: 300px; /* Ajusta el tamaño de la imagen según tus preferencias */
+    height: 300px;
     border-radius: 5px;
 }
 

@@ -1,0 +1,24 @@
+div#my-calendar{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    width: 100%;
+}
+
+#content{
+    display: flex;
+    position: relative;
+}
+
+
+#showdate{
+    margin-top: 50px;
+    display: flex;
+}
+
+#showdate p, button{
+    margin-left: 10px;
+}
+
+
+

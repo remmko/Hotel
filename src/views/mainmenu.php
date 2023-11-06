@@ -18,20 +18,51 @@
                     <p class="hover-text">Página principal</p>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="index.php?r=myreserve">
                         <img id="star" src="img/estrella.png">
                     </a>
                     <p class="hover-text">Reserves</p>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?r=login">
-                        <img src="img/user.png">
-                    </a>
-                    <p class="hover-text">Perfil</p>
-                </li>
+
+                <?php
+                if($_SESSION["is_auth"]){
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?r=usermod">
+                            <img src="img/user.png">
+                        </a>
+                        <p class="hover-text">Perfil</p>
+                    </li>
+                    <?php
+                }else{
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?r=login">
+                            <img src="img/user.png">
+                        </a>
+                        <p class="hover-text">Perfil</p>
+                    </li>
+                    <?php
+                }
+
+                ?>
+               
+
+                <?php
+                    if($_SESSION["role"]=="gestor"){
+                        ?>
+                             <li class="nav-item">
+                                <a class="nav-link" href="index.php?r=adminpanel">
+                                    <img style ="height:24px; width: 24px;" src="img/admin.png">
+                                </a>
+                                <p class="hover-text">Adminpanel</p>
+                            </li>
+
+                        <?php
+                    }
+                ?>
 
             
-
                 <li>
                     <a class="nav-link" href="index.php?r=logout">
 

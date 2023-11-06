@@ -11,9 +11,11 @@ namespace Daw;
 
 
         public function change($name, $surename, $phone, $email, $address, $address2, $city, $zip, $login, $password){
-            $sql = "UPDATE Usuario SET Nombre = :name, Apellidos = :surename, Telefono = :phone, CorreoElectronico = :email,
-            Direccion = :address, Direccion2 = :address2, Ciudad = :city, CodigoPostal = :zip, login = :login, password = :password WHERE login = :login;";
+    
 
+            $sql = "UPDATE Usuario SET Nombre = :name, Apellidos = :surename, Telefono = :phone, CorreoElectronico = :email,
+            Direccion = :address, Direccion2 = :address2, Ciudad = :city, CodigoPostal = :zip, login = :login, password = :password WHERE login  = :login;";
+    
             $stmt = $this->sql->prepare($sql);
             $stmt->execute([
                 ':name' => $name,

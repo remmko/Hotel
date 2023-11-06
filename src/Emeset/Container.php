@@ -80,4 +80,16 @@ class Container
         return new \Daw\user($this->sql);
     }
 
+    public function countRooms(){
+        return new \Daw\rooms($this->sql);
+    }
+
+    public function getRooms(){
+        return new \Daw\rooms($this -> sql);
+    }
+
+    public function getRoom(){
+        return new \Daw\rooms($this -> sql);
+    }
+
 }
