@@ -11,6 +11,7 @@
     include "src/controls/loginForm.php";
     include "src/controls/showuserinfo.php";
     include "src/controls/userReservation.php";
+    include "src/controls/confirmreserve.php";
     
 
 
@@ -58,6 +59,8 @@
         showReserve();
     }else if($r == "reserve"){
         ctrlReserve($request, $response, $container);
+    }else if($r == "confirm"){
+        ctrlConfirm($request, $response, $container);
     }
 
 

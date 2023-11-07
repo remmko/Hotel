@@ -83,41 +83,73 @@
         // Create the calendar
         var myCalendar = jsCalendar.new(element);
         // Get the inputs
-
+        var start;
+        var calc;
+        var days;
+        var calc2;
+        var price;
         // Add events
         myCalendar.onDateClick(function(event, date){
-            var start = date;
+            myCalendar.set(date);
+            calc = date;
+            var currMonth = date.getMonth()+1;
+            start = date.getFullYear()+"-"+currMonth+"-"+date.getDate();
             var text = document.getElementById("from");
             text.textContent="From";
             text = document.getElementById("start");
             text.textContent = start;
         });
     
-    </script>
-
-
-
-    <!-- Outputs -->
-    <!-- Create the calendar -->
-    <script type="text/javascript">
+  
         // Get the element
         var text = document.createElement("p");
         text.textContent="End";
         var element = document.getElementById("my-calendar");
         // Create the calendar
-        var myCalendar = jsCalendar.new(element);
+        var myCalendar2 = jsCalendar.new(element);
         // Get the inputs
 
         // Add events
-        myCalendar.onDateClick(function(event, date){
-            var end = date;
+        myCalendar2.onDateClick(function(event, date){
+            myCalendar2.set(date);
+            var currMonth = date.getMonth()+1;
+            end = date.getFullYear()+"-"+currMonth+"-"+date.getDate();;
+            calc2 = date;
             var text = document.getElementById("to");
             text.textContent = "To";
             text = document.getElementById("end");
             text.textContent = end;
             text = document.getElementById("submit");
-            text.hidden = false;
+            days = diffDates(calc2, calc);
+            var priceDay = <?php echo $result["PrecioDiaTemporadaAlta"]?>;
+            price = priceDay*days;
+
+            if(price == NaN || price < 0){
+            text.hidden = true;
+            }else{
+                text.textContent = price+"€";
+                text.hidden = false;
+            }
+
         });
+
+        
+        
+
+        function diffDates(day_one, day_two) {
+            return (day_one - day_two) / (60 * 60 * 24 * 1000);
+        };
+
+
+        id = <?php echo $id ?>;
+
+        function reserve(){
+            if(confirm("Do you want to reserve this apartment?")){
+                window.location="index.php?r=confirm&&start="+start+"&&end="+end+"&&roomID="+id+"&&days="+days+"&&price="+price;
+            }else{
+                window.location="index.php";
+            }
+        }
     
     </script>
 </div>
@@ -127,7 +159,8 @@
     <p id="start"></p>
     <p id="to"></p>
     <p id="end"></p>
-    <button type="submit" id = "submit" name="submit" hidden="true" class="btn btn-primary">Reserve</button>
+   
+    <button type="submit" onclick="reserve()" id = "submit" name="submit" hidden="true" class="btn btn-primary"></button>
 </div>
 
   

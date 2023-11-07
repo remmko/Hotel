@@ -92,4 +92,20 @@ class Container
         return new \Daw\rooms($this -> sql);
     }
 
+    public function reserve(){
+        return new \Daw\rooms($this -> sql);
+    }
+
+
+    public function countReserve(){
+        return new \Daw\rooms($this -> sql);
+    }
+
+    public function allReserve(){
+        return new \Daw\rooms($this -> sql);
+    }
+
+
+    
+
 }
