@@ -61,14 +61,20 @@ namespace Daw;
             return $result;
         }
 
-        public function allReserve(){
-            $stm = $this->sql->prepare('SELECT * from Reserva;');
-            $stm->execute();
+
+
+        public function getReserve($roomID){
+            $stm = $this->sql->prepare('SELECT * from Reserva where IDApartamento = :roomID;');
+            $stm->execute([
+                ':roomID'=> $roomID
+            ]);
             $tasks = array();
             while ($result = $stm->fetch(\PDO::FETCH_ASSOC)) {
                 $tasks[] = $result;
             }
+
             return $tasks;
+            
         }
 
     }

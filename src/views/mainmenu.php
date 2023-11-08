@@ -49,7 +49,7 @@
                
 
                 <?php
-                    if($_SESSION["role"]=="gestor"){
+                    if($_SESSION["role"]=="admin"){
                         ?>
                              <li class="nav-item">
                                 <a class="nav-link" href="index.php?r=adminpanel">
@@ -59,6 +59,22 @@
                             </li>
 
                         <?php
+                    }elseif($_SESSION["role"]=="gestor"){
+                        ?>
+                        <li class="nav-item">
+                           <a class="nav-link" href="index.php?r=addApartment">
+                               <img style ="height:24px; width: 24px;" src="img/add.png">
+                           </a>
+                           <p class="hover-text">Add apartment</p>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link" href="index.php?r=myrooms">
+                               <img style ="height:24px; width: 24px;" src="img/my.png">
+                           </a>
+                           <p class="hover-text">My Rooms</p>
+                       </li>
+
+                   <?php
                     }
                 ?>
 

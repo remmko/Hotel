@@ -14,11 +14,11 @@ function ctrlValidation($request, $response, $container) {
         $_SESSION["is_auth"] = true;
         $_SESSION["role"] = $login["Rol"];
         $_SESSION["login"] = $username;
-        if($_SESSION["role"]=="gestor"){
+        if($_SESSION["role"]=="admin"){
             header("Location: index.php?r=adminpanel");
             return $response;
         }else{
-            header("Location: index.php?r=userinfo");
+            header("Location: index.php");
             return $response;
         }
     }else{

@@ -12,6 +12,7 @@
     include "src/controls/showuserinfo.php";
     include "src/controls/userReservation.php";
     include "src/controls/confirmreserve.php";
+    include "src/controls/checkout.php";
     
 
 
@@ -43,7 +44,7 @@
         if($_SESSION["is_auth"]&&$_SESSION["role"]=="gestor"){
             ctrlAdmin();
         }else{
-            header("Location: index.php");
+            $response->redirect("Location: index.php");
         }
         
     }else if($r == "logout"){
@@ -61,7 +62,9 @@
         ctrlReserve($request, $response, $container);
     }else if($r == "confirm"){
         ctrlConfirm($request, $response, $container);
+    }elseif ($r == "reserved"){
+        pdf();
     }
 
 
-?>
+$response -> response();

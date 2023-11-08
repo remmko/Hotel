@@ -11,7 +11,12 @@
  
 </head>
 <body>
-<?php include "mainmenu.php" ?>
+<?php include "mainmenu.php";
+    if($free=="false"){
+        include "ocupped.php";
+    }
+?>
+
 <h1>Reserve</h1>
 
 

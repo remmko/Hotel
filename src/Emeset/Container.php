@@ -101,7 +101,7 @@ class Container
         return new \Daw\rooms($this -> sql);
     }
 
-    public function allReserve(){
+    public function getReserve(){
         return new \Daw\rooms($this -> sql);
     }
 

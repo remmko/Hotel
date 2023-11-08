@@ -19,7 +19,7 @@ try {
 }
 
 
-if ($_SESSION["is_auth"]&&$_SESSION["role"]=="gestor"){
+if ($_SESSION["is_auth"]&&$_SESSION["role"]=="admin"){
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $titulo = $_POST['Titulo'];
         $direccionPostal = $_POST['DireccionPostal'];
