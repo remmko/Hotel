@@ -25,70 +25,75 @@
        
      
 
-            <?php
-            
-            $id = 0; 
-            for ($i = 0; $i < $count; $i++) {
-                ?>
-                <script>
-                    var button = document.createElement("button");
-                    button.setAttribute("type", "button");
-                    button.setAttribute("class", "btn custom-button");
-                    button.setAttribute("data-bs-toggle", "modal");
-                    button.setAttribute("data-bs-target", "#exampleModal");
-                    button.setAttribute("onclick","reserve(<?php echo $id+1?>)")
 
-                    var img = document.createElement("img");
-                    img.setAttribute("src", '<?php 
-                    echo $result[$id]["img"];
-                    ?>');
-                    img.setAttribute("alt", "");
+<script>
 
-                    var infoDiv = document.createElement("div");
-                    infoDiv.setAttribute("class", "info");
 
-                    var infoHeaderDiv = document.createElement("div");
-                    infoHeaderDiv.setAttribute("class", "infoheader");
+    var rooms = <?php echo json_encode($result)?>;
+    var count = <?php echo $count ?>;
 
-                    var h4 = document.createElement("h4");
-                    h4.textContent = "<?php
-                         echo $result[$id]["Titulo"];
-                        ?>";
+    startRoom();
 
-                    var priceP = document.createElement("p");
-                    priceP.textContent = "<?php
-                      echo $result[$id]["PrecioDiaTemporadaAlta"];?>€";
+    function startRoom(){
+        for(var i = 0; i<count; i++){
+            var button = document.createElement("button");
+            button.setAttribute("type", "button");
+            button.setAttribute("class", "btn custom-button");
+            button.setAttribute("data-bs-toggle", "modal");
+            button.setAttribute("data-bs-target", "#exampleModal");
+            button.setAttribute("onclick","reserve("+i+")");
 
-                    infoHeaderDiv.appendChild(h4);
-                    infoHeaderDiv.appendChild(priceP);
+            var img = document.createElement("img");
+            img.setAttribute("src", rooms[i].img);
+            img.setAttribute("alt", "");
 
-                    var infoFinalDiv = document.createElement("div");
-                    infoFinalDiv.setAttribute("class", "infofinal");
+            var infoDiv = document.createElement("div");
+            infoDiv.setAttribute("class", "info");
 
-                    var locationP = document.createElement("p");
-                    locationP.textContent = "<?php
-                        echo $result[$id]["DireccionPostal"];?>";
+            var infoHeaderDiv = document.createElement("div");
+            infoHeaderDiv.setAttribute("class", "infoheader");
 
-                    var detailsP = document.createElement("p");
-                    detailsP.textContent = "Habitacions: <?php
-                        echo $result[$id]["NumeroHabitaciones"];?>";
+            var h4 = document.createElement("h4");
+            h4.textContent = rooms[i].Titulo;
 
-                    infoFinalDiv.appendChild(locationP);
-                    infoFinalDiv.appendChild(detailsP);
+            var priceP = document.createElement("p");
+            priceP.textContent = rooms[i].PrecioDiaTemporadaAlta+"€";
 
-                    button.appendChild(img);
-                    button.appendChild(infoDiv);
-                    infoDiv.appendChild(infoHeaderDiv);
-                    infoDiv.appendChild(infoFinalDiv);
-                    document.body.appendChild(button);
+            infoHeaderDiv.appendChild(h4);
+            infoHeaderDiv.appendChild(priceP);
 
-                </script>
-                <?php
-                
-                
-                $id ++;
-            }
-            ?>
+            var infoFinalDiv = document.createElement("div");
+            infoFinalDiv.setAttribute("class", "infofinal");
+
+            var locationP = document.createElement("p");
+            locationP.textContent = rooms[i].DireccionPostal;
+
+            var detailsP = document.createElement("p");
+            detailsP.textContent = "Habitacions: "+rooms[i].NumeroHabitaciones;
+
+            infoFinalDiv.appendChild(locationP);
+            infoFinalDiv.appendChild(detailsP);
+
+            button.appendChild(img);
+            button.appendChild(infoDiv);
+            infoDiv.appendChild(infoHeaderDiv);
+            infoDiv.appendChild(infoFinalDiv);
+            document.body.appendChild(button);
+        }
+    
+    }
+
+
+    function reserve(i){
+        window.location="index.php?r=reserve&roomId="+rooms[i].ID;
+
+    }
+
+    
+
+    
+
+</script>
 
              
 
@@ -97,9 +102,8 @@
            
 
       
-        
-            <script src="app/reserve.js"></script>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
