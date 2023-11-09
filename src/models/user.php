@@ -41,4 +41,53 @@ namespace Daw;
 
         }
 
+
+        public function getUsers(){
+            $stm = $this->sql->prepare('select * from Usuario');
+            $stm -> execute();
+
+            $tasks = array();
+            while ($result = $stm->fetch(\PDO::FETCH_ASSOC)) {
+                $tasks[] = $result;
+            }
+
+            return $tasks;
+        }
+
+
+
+        public function countUsers(){
+            $stm = $this->sql->prepare('SELECT COUNT(ID) from Usuario');
+            $stm->execute();
+            $result = $stm->fetch(\PDO::FETCH_ASSOC);
+            return $result;
+        }
+
+
+
+        public function deleteUser($id){
+            $stm = $this -> sql -> prepare('DELETE FROM Usuario  WHERE ID = :id');
+            $stm->execute([
+                ':id'=>$id
+            ]);
+
+        }
+
+        public function toGestor($id){
+            $stm = $this -> sql -> prepare('UPDATE Usuario SET Rol = "gestor" WHERE ID = :id');
+            $stm->execute([
+                ':id'=>$id
+            ]);
+
+        }
+
+
+        public function toClient($id){
+            $stm = $this -> sql -> prepare('UPDATE Usuario SET Rol = "cliente" WHERE ID = :id');
+            $stm->execute([
+                ':id'=>$id
+            ]);
+
+        }
+
     }

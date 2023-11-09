@@ -62,9 +62,29 @@ class Container
         return new \Daw\Users($this->sql);
     }
 
+    public function deleteUser(){
+        return new \Daw\user($this->sql);
+    }
+
+    public function toGestor(){
+        return new \Daw\user($this->sql);
+    }
+
+    public function toClient(){
+        return new \Daw\user($this->sql);
+    }
+
+    public function deleteRoom(){
+        return new \Daw\rooms($this->sql);
+    }
+
     public function registration(){
 
         return new \Daw\registration($this->sql);
+    }
+
+    public function addHotel(){
+        return new \Daw\adminpanel($this->sql);
     }
 
     public function login(){
@@ -76,9 +96,19 @@ class Container
         return new \Daw\user($this->sql);
     }
 
+    public function getUsers(){
+        return new \Daw\user($this->sql);
+    }
+
     public function getInfo(){
         return new \Daw\user($this->sql);
     }
+
+    public function countUsers(){
+        return new \Daw\user($this->sql);
+    }
+
+    
 
     public function countRooms(){
         return new \Daw\rooms($this->sql);

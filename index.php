@@ -13,6 +13,8 @@
     include "src/controls/userReservation.php";
     include "src/controls/confirmreserve.php";
     include "src/controls/checkout.php";
+    include "src/controls/action.php";
+    include "src/controls/gestpanel.php";
     
 
 
@@ -41,8 +43,8 @@
     }else if ($r=="userinfo"){
         ctrlUser($request, $response, $container);
     }else if ($r=="adminpanel"){
-        if($_SESSION["is_auth"]&&$_SESSION["role"]=="gestor"){
-            ctrlAdmin();
+        if($_SESSION["is_auth"]&&$_SESSION["role"]=="admin"){
+            ctrlAdmin($request, $response, $container);
         }else{
             $response->redirect("Location: index.php");
         }
@@ -64,6 +66,18 @@
         ctrlConfirm($request, $response, $container);
     }elseif ($r == "reserved"){
         pdf();
+    }else if ($r == "delete"){
+        deleteUser($request, $response, $container);
+    }else if($r == "toGestor"){
+        toGestor($request, $response, $container);
+    }else if($r == "toClient"){
+        toClient($request, $response, $container);
+    }elseif($r=="deleteRoom"){
+        deleteRoom($request, $response, $container);
+    }else if($r=="addApartment"){
+        addApartment($request, $response, $container);
+    }else{
+        ctrlIndex($request, $response, $container);
     }
 
 

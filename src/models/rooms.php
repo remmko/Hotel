@@ -57,7 +57,8 @@ namespace Daw;
 
         public function countReserve(){
             $stm = $this->sql->prepare('SELECT COUNT(ID) from Reserva');
-            $result=$stm->execute();
+            $stm->execute();
+            $result = $stm->fetch(\PDO::FETCH_ASSOC);
             return $result;
         }
 
@@ -77,4 +78,15 @@ namespace Daw;
             
         }
 
+
+        public function deleteRoom($id){
+            $stm = $this -> sql -> prepare('DELETE FROM Apartamento  WHERE ID = :id');
+            $stm->execute([
+                ':id'=>$id
+            ]);
+
+        }
+
     }
+
+

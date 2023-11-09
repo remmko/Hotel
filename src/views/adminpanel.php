@@ -17,7 +17,6 @@
         <div class="menu">
             <div class="menu-item" onclick ="addroom()">Add Rooms</div>
             <div class="menu-item" onclick="allRooms()">Apartments</div>
-            <div class="menu-item"onclick ="reservations()">Reservations</div>
             <div class="menu-item"onclick="allUsers()">Users</div>
         </div>
 
@@ -30,124 +29,176 @@
 </html>
 
 
+    <script>
 
-<?php
-             $servername = "projectdb.ddns.net";
-             $username = "hoteladmin";
-             $password = "opensource";
-             $database = "hotel";
-         
-             try {
-                 $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-         
-             } catch (PDOException $e) {
-                 die("Error: " . $e->getMessage());
-             }
+        <?php 
+         if($action == "true"){
+             ?>
+                    allUsers();
 
-             
-            $query = "SELECT COUNT(ID) from Apartamento";
-            $result = $conn->query($query);
-            $row = $result->fetch();
-        
-            $count = $row[0];
-           
-            $id = 1; 
-            for ($i = 0; $i < $count; $i++) {
+             <?php
+         }elseif($action=="room"){
                 ?>
-                <script>
-                    function allRooms(){
-                        var count = <?php echo $count?>;
-                        var mainBody = document.getElementById("mainBody");
-                        mainBody.innerHTML="";
-                        for (var i = 0; i<count; i++){
-                            var button = document.createElement("button");
-                            button.setAttribute("type", "button");
-                            button.setAttribute("class", "btn custom-button");
-                            button.setAttribute("data-bs-toggle", "modal");
-                            button.setAttribute("data-bs-target", "#exampleModal");
-                            button.setAttribute("onclick","reserve(<?php echo $id?>)")
-
-                            var img = document.createElement("img");
-                            img.setAttribute("src", '<?php
-                            $query = "SELECT img from Apartamento where id =".$id.";";
-                            $result = $conn->query($query);
-                            $row = $result->fetch();
-
-                            $count = $row[0];
-                            echo $count;?>');
-                            img.setAttribute("alt", "");
-
-                            var infoDiv = document.createElement("div");
-                            infoDiv.setAttribute("class", "info");
-
-                            var infoHeaderDiv = document.createElement("div");
-                            infoHeaderDiv.setAttribute("class", "infoheader");
-
-                            var h4 = document.createElement("h4");
-                            h4.textContent = "<?php
-                            $query = "SELECT Titulo from Apartamento where id =".$id.";";
-                            $result = $conn->query($query);
-                            $row = $result->fetch();
-
-                            $count = $row[0];
-                            echo $count;?>";
-
-                            var priceP = document.createElement("p");
-                            priceP.textContent = "<?php
-                            $query = "SELECT PrecioDiaTemporadaBaja from Apartamento where id =".$id.";";
-                            $result = $conn->query($query);
-                            $row = $result->fetch();
-
-                            $count = $row[0];
-                            echo $count;?>€";
-
-                            infoHeaderDiv.appendChild(h4);
-                            infoHeaderDiv.appendChild(priceP);
-
-                            var infoFinalDiv = document.createElement("div");
-                            infoFinalDiv.setAttribute("class", "infofinal");
-
-                            var locationP = document.createElement("p");
-                            locationP.textContent = "<?php
-                            $query = "SELECT DireccionPostal from Apartamento where id =".$id.";";
-                            $result = $conn->query($query);
-                            $row = $result->fetch();
-
-                            $count = $row[0];
-                            echo $count;?>";
-
-                            var detailsP = document.createElement("p");
-                            detailsP.textContent = "Habitacions: <?php
-                            $query = "SELECT NumeroHabitaciones from Apartamento where id =".$id.";";
-                            $result = $conn->query($query);
-                            $row = $result->fetch();
-
-                            $count = $row[0];
-                            echo $count;?>";
-
-                            infoFinalDiv.appendChild(locationP);
-                            infoFinalDiv.appendChild(detailsP);
-
-                            button.appendChild(img);
-                            button.appendChild(infoDiv);
-                            infoDiv.appendChild(infoHeaderDiv);
-                            infoDiv.appendChild(infoFinalDiv);
-                            mainBody.appendChild(button);
-                        }
-                    
-                    }
-                </script>
-
-            <?php
-                $query = "SELECT COUNT(ID) from Apartamento";
-                $result = $conn->query($query);
-                $row = $result->fetch();
-             
-                $count = $row[0];
-                $id++; 
+                    allRooms();
+                <?php
             }
-            ?>
+        ?>
+        var rooms;
+        var users;
+
+
+        function allRooms(){
+            rooms = <?php echo json_encode($getRooms)?>;
+            var count = <?php echo $countRooms["COUNT(ID)"]?>;
+            var mainBody = document.getElementById("mainBody");
+            mainBody.innerHTML="";
+            for (var i = 0; i<count; i++){
+                var button = document.createElement("button");
+                button.setAttribute("type", "button");
+                button.setAttribute("class", "btn custom-button");
+                button.setAttribute("data-bs-toggle", "modal");
+                button.setAttribute("data-bs-target", "#exampleModal");
+                button.setAttribute("onclick","deleteRoom("+i+")");
+
+                var img = document.createElement("img");
+                img.setAttribute("src", rooms[i].img);
+                img.setAttribute("alt", "");
+
+                var infoDiv = document.createElement("div");
+                infoDiv.setAttribute("class", "info");
+
+                var infoHeaderDiv = document.createElement("div");
+                infoHeaderDiv.setAttribute("class", "infoheader");
+
+                var h4 = document.createElement("h4");
+                h4.textContent = rooms[i].Titulo;
+
+                var priceP = document.createElement("p");
+                priceP.textContent = rooms[i].PrecioDiaTemporadaBaja+"€";
+
+                infoHeaderDiv.appendChild(h4);
+                infoHeaderDiv.appendChild(priceP);
+
+                var infoFinalDiv = document.createElement("div");
+                infoFinalDiv.setAttribute("class", "infofinal");
+
+                var locationP = document.createElement("p");
+                locationP.textContent = rooms[i].DireccionPostal;
+
+                var detailsP = document.createElement("p");
+                detailsP.textContent = "Habitacions: "+rooms[i].NumeroHabitaciones;
+
+                infoFinalDiv.appendChild(locationP);
+                infoFinalDiv.appendChild(detailsP);
+
+                button.appendChild(img);
+                button.appendChild(infoDiv);
+                infoDiv.appendChild(infoHeaderDiv);
+                infoDiv.appendChild(infoFinalDiv);
+                mainBody.appendChild(button);
+            }
+        
+        }
+
+
+        function deleteRoom(i){
+            if(confirm("Do you want ro delete room "+rooms[i].Titulo)){
+                window.location ="index.php?r=deleteRoom&&roomID="+rooms[i].ID;
+            }
+        }
+
+
+
+
+    function allUsers(){
+        users = <?php echo json_encode($getUsers)?>;
+
+        var mainBody = document.getElementById("mainBody");
+        mainBody.innerHTML="";
+        var newTable = document.createElement("table");
+        var newTr = document.createElement("tr");
+        var newTh = document.createElement("th");
+        var scndTh = document.createElement("th");
+        var rdTh = document.createElement("th");
+        rdTh.textContent = "Action";
+        var thTh = document.createElement("th");
+        thTh.textContent = "Delete";
+        newTh.textContent = "Username";
+        scndTh.textContent = "Role";
+        var count = <?php echo $countUsers["COUNT(ID)"]?>;
+
+        mainBody.appendChild(newTable);
+        newTable.appendChild(newTr);
+        newTr.appendChild(newTh);
+        newTr.appendChild(scndTh);
+        newTr.appendChild(rdTh);
+        newTr.appendChild(thTh);
+
+        for (var i = 0; i<count; i++){
+            var scndTr = document.createElement("tr");
+            newTable.appendChild(scndTr);
+            newTd = document.createElement("td");
+            scndTr.appendChild(newTd);
+            newTd.textContent = users[i].login;
+
+            newTd = document.createElement("td");
+            scndTr.appendChild(newTd);
+            newTd.textContent = users[i].Rol;
+
+
+            newTd = document.createElement("td");
+            scndTr.appendChild(newTd);
+
+            if(users[i].Rol=="gestor"){
+                newTd.textContent="Change role to client";
+                newTd.setAttribute("id", "hoverG")
+                newTd.setAttribute("onclick", "toClient("+i+")");
+            }else if(users[i].Rol=="cliente"){
+                newTd.textContent="Change role to gestor";
+                newTd.setAttribute("id", "hoverG")
+                newTd.setAttribute("onclick", "toGestor("+i+")")
+
+            }else{
+                newTd.textContent="admin";
+            }
+
+
+
+            newTd = document.createElement("td");
+            scndTr.appendChild(newTd);
+            newTd.textContent = "Delete user";
+            newTd.setAttribute("id", "hoverR");
+            newTd.setAttribute("onclick", "deleteUser("+i+")");
+            
+        }
+
+        
+
+        
+
+    }
+
+    function deleteUser(i){
+        if(confirm("Do you want to delete user "+users[i].login+"?")){
+            window.location="index.php?r=delete&&userID="+users[i].ID;
+
+        }
+    }
+
+
+    function toGestor(i){
+        if(confirm("Do you want to change rol a gestor to "+users[i].login+"?")){
+            window.location="index.php?r=toGestor&&userID="+users[i].ID;
+        }
+    }
+
+    function toClient(i){
+        if(confirm("Do you want to change rol a client to "+users[i].login+"?")){
+            window.location="index.php?r=toClient&&userID="+users[i].ID;
+        }
+    }
+    
+</script>
 
 
 
