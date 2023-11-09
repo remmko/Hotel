@@ -1,22 +1,27 @@
 <?php
 
     function myreserve($request, $response, $container){
-     
-        $getMyReserve = $container -> getMyReserve();
-        $getInfo = $container -> getInfo();
-        $getInfo = $getInfo ->getInfo($_SESSION["login"]);
+        if($_SESSION["is_auth"]){
+            $getMyReserve = $container -> getMyReserve();
+            $getInfo = $container -> getInfo();
+            $getInfo = $getInfo ->getInfo($_SESSION["login"]);
 
-        $userID = $getInfo["ID"];
+            $userID = $getInfo["ID"];
 
-        $getMyReserve = $getMyReserve -> getMyReserve($userID);
-        $countMyReserve = $container -> countMyReserve();
-        $countMyReserve = $countMyReserve -> countMyReserve($userID);
+            $getMyReserve = $getMyReserve -> getMyReserve($userID);
+            $countMyReserve = $container -> countMyReserve();
+            $countMyReserve = $countMyReserve -> countMyReserve($userID);
 
 
-        $getRooms = $container -> getRooms();
-        $getRooms = $getRooms -> getRooms();
+            $getRooms = $container -> getRooms();
+            $getRooms = $getRooms -> getRooms();
 
-        include "src/views/myreserve.php";
+            include "src/views/myreserve.php";
+        }else{
+            $response -> redirect("Location: index.php?r=login");
+            return $response;
+        }
+        
 
     }
 
