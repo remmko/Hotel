@@ -60,7 +60,7 @@
 
 
     function deleteRoom($request, $response, $container){
-        if($_SESSION["role"]=="admin"){
+        if($_SESSION["role"]=="admin" || $_SESSION["role"]=="gestor"){
             if(isset($_GET["roomID"])){
                 $id = $_GET["roomID"];
                 $deleteRoom = $container -> deleteRoom();

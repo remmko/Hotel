@@ -83,7 +83,7 @@
                     <a class="nav-link" href="index.php?r=logout">
 
                          <?php if($_SESSION["is_auth"]){
-                            echo "Logout ".$_SESSION["login"]." role: ".$_SESSION["role"];
+                            echo "Logout ".$_SESSION["login"];
                          } else{
 
                             echo "";

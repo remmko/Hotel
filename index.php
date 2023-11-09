@@ -15,6 +15,7 @@
     include "src/controls/checkout.php";
     include "src/controls/action.php";
     include "src/controls/gestpanel.php";
+    include "src/controls/myreserve.php";
     
 
 
@@ -58,8 +59,6 @@
         ctrlValidation($request, $response, $container);
     }else if ($r == "usermod"){
         ctrlChangeinfo($request, $response, $container);
-    }else if($r == "myreserve"){
-        showReserve();
     }else if($r == "reserve"){
         ctrlReserve($request, $response, $container);
     }else if($r == "confirm"){
@@ -76,6 +75,12 @@
         deleteRoom($request, $response, $container);
     }else if($r=="addApartment"){
         addApartment($request, $response, $container);
+    }else if($r=="myrooms"){
+        myrooms($request, $response, $container);
+    }else if($r=="myreserve"){
+        myreserve($request, $response, $container);
+    }else if($r=="deleteReserve"){
+        deleteReserve($request, $response, $container);
     }else{
         ctrlIndex($request, $response, $container);
     }

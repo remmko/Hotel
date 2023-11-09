@@ -21,6 +21,20 @@ namespace Daw;
         }
 
 
+        public function countRoom($userID){
+            
+            $stm = $this->sql->prepare('SELECT COUNT(addedBy) from Apartamento WHERE addedBy = :userID');
+            $stm->execute([
+                'userID' => $userID
+            ]);
+            $result = $stm->fetch(\PDO::FETCH_ASSOC);
+
+          
+
+            return $result;
+
+        }
+
         public function getRooms(){
             $stm = $this->sql->prepare('SELECT * from Apartamento;');
             $stm->execute();
@@ -37,6 +51,16 @@ namespace Daw;
             $result = $stm->fetch(\PDO::FETCH_ASSOC);
             
             return $result;
+        }
+
+
+        public function getMyRooms($userID){
+            $stm = $this->sql->prepare('SELECT * from Apartamento where addedBy = :userID;');
+            $stm->execute([':userID'=> $userID]);
+            while ($result = $stm->fetch(\PDO::FETCH_ASSOC)) {
+                $tasks[] = $result;
+            }
+            return $tasks;
         }
 
 
@@ -63,11 +87,35 @@ namespace Daw;
         }
 
 
+        public function countMyReserve($userID){
+            $stm = $this->sql->prepare('SELECT COUNT(ID) from Reserva where IDUsuario = :userID');
+            $stm->execute([
+                ':userID' => $userID
+            ]);
+            $result = $stm->fetch(\PDO::FETCH_ASSOC);
+            return $result;
+        }
+
 
         public function getReserve($roomID){
             $stm = $this->sql->prepare('SELECT * from Reserva where IDApartamento = :roomID;');
             $stm->execute([
                 ':roomID'=> $roomID
+            ]);
+            $tasks = array();
+            while ($result = $stm->fetch(\PDO::FETCH_ASSOC)) {
+                $tasks[] = $result;
+            }
+
+            return $tasks;
+            
+        }
+
+
+        public function getMyReserve($userID){
+            $stm = $this->sql->prepare('SELECT * from Reserva where IDUsuario = :userID;');
+            $stm->execute([
+                ':userID'=> $userID
             ]);
             $tasks = array();
             while ($result = $stm->fetch(\PDO::FETCH_ASSOC)) {
@@ -85,6 +133,14 @@ namespace Daw;
                 ':id'=>$id
             ]);
 
+        }
+
+
+        public function deleteReserve($id){
+            $stm = $this -> sql -> prepare('DELETE FROM Reserva  WHERE ID = :id');
+            $stm->execute([
+                ':id'=>$id
+            ]);
         }
 
     }

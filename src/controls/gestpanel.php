@@ -40,5 +40,23 @@
 
 
     function myrooms($request, $response, $container){
-        
+        if($_SESSION["role"]=="gestor"){
+
+            $getInfo = $container -> getInfo();
+            $getInfo = $getInfo -> getInfo($_SESSION["login"]);
+            $userID = $getInfo["ID"];
+            $getRooms=$container->getMyRooms();
+            $getRooms=$getRooms->getMyRooms($userID);
+
+            $countRooms = $container -> countRoom();
+            $countRooms = $countRooms ->countRoom($userID);
+
+            include "src/views/myrooms.php";
+
+
+
+        }else{
+            $response -> redirect("Location: index.php");
+            return $response;
+        }
     }

@@ -18,7 +18,7 @@
                     $getInfo = $getInfo -> getInfo($_SESSION['login']);
                     $userid = $getInfo["ID"];
                     $reserve -> reserve($_GET["start"], $_GET["end"], $_GET["roomID"], $_GET["price"], $userid);
-                    header("Location: index.php?r=reserved");
+                    header("Location: index.php?r=myreserve");
                 }
             }
             

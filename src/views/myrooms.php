@@ -25,10 +25,10 @@
     <script>
 
         allRooms();
-
+        var rooms;
         function allRooms(){
             rooms = <?php echo json_encode($getRooms)?>;
-            var count = <?php echo $countRooms["COUNT(ID)"]?>;
+            var count = <?php echo $countRooms["COUNT(addedBy)"]?>;
             var mainBody = document.getElementById("mainBody");
             mainBody.innerHTML="";
             for (var i = 0; i<count; i++){
@@ -75,6 +75,13 @@
                 infoDiv.appendChild(infoHeaderDiv);
                 infoDiv.appendChild(infoFinalDiv);
                 mainBody.appendChild(button);
+            }
+        }
+
+
+        function deleteRoom(i){
+            if(confirm("Do you want ro delete room "+rooms[i].Titulo)){
+                window.location ="index.php?r=deleteRoom&&roomID="+rooms[i].ID;
             }
         }
     </script>

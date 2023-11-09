@@ -127,11 +127,32 @@ class Container
     }
 
 
+    public function getMyRooms(){
+        return new \Daw\rooms($this -> sql);
+    }
+
+
     public function countReserve(){
         return new \Daw\rooms($this -> sql);
     }
 
+    public function countMyReserve(){
+        return new \Daw\rooms($this -> sql);
+    }
+
+    public function deleteReserve(){
+        return new \Daw\rooms($this -> sql);
+    }
+
     public function getReserve(){
+        return new \Daw\rooms($this -> sql);
+    }
+
+    public function getMyReserve(){
+        return new \Daw\rooms($this -> sql);
+    }
+
+    public function countRoom(){
         return new \Daw\rooms($this -> sql);
     }
 
